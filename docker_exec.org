@@ -1,0 +1,16 @@
+* run jekyll
+#+begin_src shell
+docker run --rm --volume="$PWD:/srv/jekyll" --volume="$PWD/vendor/bundle:/usr/local/bundle" --env JEKYLL_ENV=development -p 4000:4000 jekyll/builder:$JEKYLL_VERSION jekyll serve
+#+end_src
+* creating a draft
+#+begin_src bash
+docker run --rm --volume="$PWD:/srv/jekyll" --env JEKYLL_ENV=development jekyll/builder:$JEKYLL_VERSION bundle exec jekyll draft "My new draft"
+#+end_src
+* export env variable
+#+begin_src bash
+export JEKYLL_VERSION=3.8
+#+end_src
+* running
+#+begin_src bash
+docker run --rm --volume="$PWD:/srv/jekyll" --volume="$PWD/vendor/bundle:/usr/local/bundle" --env JEKYLL_ENV=development jekyll/builder:$JEKYLL_VERSION draft "My new draft"
+#+end_src
