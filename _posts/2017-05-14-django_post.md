@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to read JSON data in a HTTP POST request in Django"
+title:  "How to read JSON data in an HTTP POST request in Django"
 <!-- date:   2016-11-24 21:47:04 +0530 -->
 categories: django
 comments: true
@@ -14,8 +14,8 @@ It is because `request.POST` contains only the data sent from a HTML
 `<form>` element. So if need to read JSON data from the POST request you need to
 use `json.loads(request.body)`.
 
-`request.body` gives you raw HTTP request body as a bytestring. You can convert
-into a dictionay using `json.loads()`.
+`request.body` gives you a raw HTTP request body as a bytestring. You can convert
+into a dictionary using `json.loads()`.
 {% if page.comments %}
 <div id="disqus_thread"></div>
 <script>
