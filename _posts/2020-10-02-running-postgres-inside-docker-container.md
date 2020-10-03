@@ -20,7 +20,7 @@ To set the database name, user and password you need to set `POSTGRES_DB`
 
 These can be passed to the docker run command as below
 
-    docker run -it --rm -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=myuser -e POSTGRES_DB=mydb postgres
+    docker run --rm -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=myuser -e POSTGRES_DB=mydb postgres
 
 To keep your data even after the container exits, you need to use volumes. To create
 a volume use the command
@@ -29,12 +29,12 @@ a volume use the command
 
 Now to use the volume we've created modify the run command as below
 
-    docker run -it --rm -v pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=myuser -e POSTGRES_DB=mydb postgres
+    docker run --rm -v pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=myuser -e POSTGRES_DB=mydb postgres
 
 If you want to connect to this container to run SQL queries, I suggest setting a
 name to this container. You do this by passing `--name` switch with a value
 
-    docker run -it --rm --name mypostgres -v pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=myuser -e POSTGRES_DB=mydb postgres
+    docker run --rm --name mypostgres -v pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=myuser -e POSTGRES_DB=mydb postgres
 
 Connect to the running instance with the following command
 
