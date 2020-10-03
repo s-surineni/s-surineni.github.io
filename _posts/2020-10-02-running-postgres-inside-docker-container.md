@@ -34,7 +34,11 @@ Now to use the volume we've created modify the run command as below
 If you want to connect to this container to run SQL queries, I suggest setting a
 name to this container. You do this by passing `--name` switch with a value
 
-    docker run --rm --name mypostgres -v pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=myuser -e POSTGRES_DB=mydb postgres
+    docker run --rm --name mypostgres \
+    -v pgdata:/var/lib/postgresql/data \
+    -e POSTGRES_PASSWORD=mysecretpassword \
+    -e POSTGRES_USER=myuser \
+    -e POSTGRES_DB=mydb postgres
 
 Connect to the running instance with the following command
 
