@@ -42,5 +42,14 @@ name to this container. You do this by passing `--name` switch with a value
 
 Connect to the running instance with the following command
 
-    $ docker exec -it mypostgres bash
-    # psql -U postgres -d mydb
+    $ docker exec -it mypostgres psql -U postgres -d mydb
+
+If you need to connect to postgreSQL through network you need to expose a port
+`-p` flag
+
+    docker run --rm --name mypostgres \
+    -v pgdata:/var/lib/postgresql/data \
+    -e POSTGRES_PASSWORD=mysecretpassword \
+    -e POSTGRES_USER=myuser \
+    -e POSTGRES_DB=mydb \
+    -p 5432:5432 postgres
